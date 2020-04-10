@@ -150,6 +150,7 @@
       const mmData = await d3.csv('Middleman.csv');
       const csData = await d3.csv('ColdStorage.csv');
       const retailData = await d3.csv('Retailer.csv');
+      const AVC = await d3.json('AVC.json');
 
       const unique = (value, index, self) => {
         return index === self.indexOf(value);
@@ -182,11 +183,11 @@
       //const hexG = hex(farmerData);
       //const dataPoints = hexG.grid.layout.map(d => d.x);
 
-      console.log(farmerData);
-      console.log(w, h);
-      //console.log(d3.min(dataPoints));
-      //console.log(d3.max(dataPoints));
-      console.log(AVC);
+      // console.log(farmerData);
+      // console.log(w, h);
+      // //console.log(d3.min(dataPoints));
+      // //console.log(d3.max(dataPoints));
+      // console.log(AVC);
 
       const uniqDistricts = getUniqVals('District', farmerData);
       const uniqDates = getUniqVals('today', farmerData);
@@ -268,7 +269,7 @@
           .attr('r', d => sqrtScaleFactor * Math.sqrt(d.datapoints))
       }
 
-      console.log(retailData);
+      //console.log(retailData);
       appendBubbles(farmerData, "Farmer", 2, 'yellow', hex, 6);
       appendBubbles(csData, "ColdStorage", 4, '#1f78b4', hex, 4.5);
       appendBubbles(retailData, "Retailer", 4, '#fb9a99', hex, 6.5);
